@@ -10,14 +10,14 @@ import com.intellij.openapi.project.Project
  */
 class ErrorConsoleFilterProvider : ConsoleFilterProvider {
     override fun getDefaultFilters(project: Project): Array<Filter> =
-        arrayOf(ErrorConsoleFilter())
+        arrayOf(ErrorConsoleFilter(project))
 }
 
 /**
- * 콘솔에 출력되는 각 줄을 검사해 에러 패턴이 보이면 소리를 재생한다.
+ * 콘솔에 출력되는 각 줄을 검사해 에러 패턴이 보이면 알림(소리 + 이미지)을 발화한다.
  * 실제 하이라이팅은 하지 않으므로 항상 null 을 반환한다.
  */
-class ErrorConsoleFilter : Filter {
+class ErrorConsoleFilter(private val project: Project) : Filter {
 
     // 감지할 키워드. 필요에 맞게 추가/삭제하세요.
     private val patterns = listOf(
@@ -31,7 +31,7 @@ class ErrorConsoleFilter : Filter {
 
     override fun applyFilter(line: String, entireLength: Int): Filter.Result? {
         if (patterns.any { line.contains(it) }) {
-            SoundPlayer.play()
+            ErrorAlert.trigger(project)
         }
         return null
     }

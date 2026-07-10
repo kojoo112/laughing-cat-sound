@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "io.github.kojoo112"
-version = "1.0.0"
+version = "1.2.0"
 
 repositories {
     mavenCentral()
@@ -33,6 +33,38 @@ intellijPlatform {
         }
 
         changeNotes = """
+            <b>1.2.0</b>
+            <ul>
+                <li>에러 발생 시 웃는 고양이 이미지를 잠깐 띄웠다가 사라지게 하는 팝업 추가</li>
+                <li>팝업 위치 선택 추가 (우측 하단/좌측 하단/우측 상단/좌측 상단/중앙, 그리고 모두)</li>
+                <li>"모두" 선택 시 다섯 위치에 동시에 표시</li>
+                <li>테스트 버튼이 소리와 이미지 팝업을 함께 미리보기하도록 변경</li>
+                <li>설정창에서 테스트 시 팝업이 사라지지 않던 문제 수정</li>
+            </ul>
+            <b>1.2.0 (English)</b>
+            <ul>
+                <li>Add an image popup that briefly shows a laughing cat and fades out on error.</li>
+                <li>Add a popup position setting (bottom-right/left, top-right/left, center, and All).</li>
+                <li>"All" shows the image at the five positions at once.</li>
+                <li>The Test button now previews both the sound and the image popup.</li>
+                <li>Fix the popup not disappearing when tested from the settings dialog.</li>
+            </ul>
+            <b>1.1.0</b>
+            <ul>
+                <li>설정 페이지 추가: Settings/Preferences | Tools | Laughing Cat Sound</li>
+                <li>볼륨 조절 추가 (0-100, 0이면 음소거)</li>
+                <li>선택한 볼륨으로 미리 듣는 "소리 테스트" 버튼 추가</li>
+                <li>새 소리가 재생되면 이전 소리를 멈춰 겹침 방지</li>
+                <li>설정 UI 다국어 지원 (한국어/영어)</li>
+            </ul>
+            <b>1.1.0 (English)</b>
+            <ul>
+                <li>Add a settings page at Settings/Preferences | Tools | Laughing Cat Sound.</li>
+                <li>Add a volume control (0-100, where 0 mutes the sound).</li>
+                <li>Add a "Test sound" button to preview the sound at the chosen volume.</li>
+                <li>A newly triggered sound now stops the previous one instead of overlapping.</li>
+                <li>Localize the settings UI (Korean and English).</li>
+            </ul>
             <b>1.0.0</b>
             <ul>
                 <li>Play a laughing cat sound when a run/debug process exits with an error.</li>

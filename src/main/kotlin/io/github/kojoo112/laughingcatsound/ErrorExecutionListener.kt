@@ -19,12 +19,12 @@ class ErrorExecutionListener : ExecutionListener {
         exitCode: Int
     ) {
         if (exitCode != 0) {
-            SoundPlayer.play()
+            ErrorAlert.trigger(env.project)
         }
     }
 
     override fun processNotStarted(executorId: String, env: ExecutionEnvironment) {
         // 컴파일 에러 등으로 실행 전 단계에서 중단되어 프로세스가 시작되지 못한 경우
-        SoundPlayer.play()
+        ErrorAlert.trigger(env.project)
     }
 }
