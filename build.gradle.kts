@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "io.github.kojoo112"
-version = "1.1.0"
+version = "1.2.0"
 
 repositories {
     mavenCentral()
@@ -33,6 +33,22 @@ intellijPlatform {
         }
 
         changeNotes = """
+            <b>1.2.0</b>
+            <ul>
+                <li>에러 발생 시 웃는 고양이 이미지를 잠깐 띄웠다가 사라지게 하는 팝업 추가</li>
+                <li>팝업 위치 선택 추가 (우측 하단/좌측 하단/우측 상단/좌측 상단/중앙, 그리고 모두)</li>
+                <li>"모두" 선택 시 다섯 위치에 동시에 표시</li>
+                <li>테스트 버튼이 소리와 이미지 팝업을 함께 미리보기하도록 변경</li>
+                <li>설정창에서 테스트 시 팝업이 사라지지 않던 문제 수정</li>
+            </ul>
+            <b>1.2.0 (English)</b>
+            <ul>
+                <li>Add an image popup that briefly shows a laughing cat and fades out on error.</li>
+                <li>Add a popup position setting (bottom-right/left, top-right/left, center, and All).</li>
+                <li>"All" shows the image at the five positions at once.</li>
+                <li>The Test button now previews both the sound and the image popup.</li>
+                <li>Fix the popup not disappearing when tested from the settings dialog.</li>
+            </ul>
             <b>1.1.0</b>
             <ul>
                 <li>설정 페이지 추가: Settings/Preferences | Tools | Laughing Cat Sound</li>

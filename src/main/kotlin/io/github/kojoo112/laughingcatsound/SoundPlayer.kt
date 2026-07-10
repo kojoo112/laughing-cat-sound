@@ -16,25 +16,15 @@ object SoundPlayer {
 
     private const val SOUND_RESOURCE = "/sounds/laughing-cat-sound.wav"
 
-    // 이 시간(ms) 안에 다시 요청되면 무시한다. 콘솔 에러가 폭주할 때 유용.
-    private const val THROTTLE_MS = 1500L
-
-    @Volatile
-    private var lastPlayed = 0L
-
     // 현재 재생 중인 클립. 새 재생을 시작하기 전에 이전 것을 멈추는 데 쓴다.
     private val clipLock = Any()
     private var currentClip: Clip? = null
 
     /**
-     * 에러 이벤트에서 호출한다. 쓰로틀링을 적용하고, 설정된 볼륨으로 재생한다.
+     * 에러 이벤트에서 호출한다. 설정된 볼륨으로 재생한다.
+     * 쓰로틀링은 [ErrorAlert] 에서 처리한다.
      */
     fun play() {
-        val now = System.currentTimeMillis()
-        synchronized(this) {
-            if (now - lastPlayed < THROTTLE_MS) return
-            lastPlayed = now
-        }
         playInternal(LaughingCatSettings.getInstance().volume)
     }
 

@@ -21,6 +21,12 @@ class LaughingCatSettings : PersistentStateComponent<LaughingCatSettings.State> 
     class State {
         /** 재생 볼륨(0..100). 0 이면 음소거. */
         var volume: Int = 80
+
+        /** 에러 시 고양이 이미지 팝업을 표시할지 여부. */
+        var showImagePopup: Boolean = true
+
+        /** 이미지 팝업 위치. */
+        var popupPosition: PopupPosition = PopupPosition.BOTTOM_RIGHT
     }
 
     private var state = State()
@@ -35,6 +41,18 @@ class LaughingCatSettings : PersistentStateComponent<LaughingCatSettings.State> 
         get() = state.volume
         set(value) {
             state.volume = value.coerceIn(0, 100)
+        }
+
+    var showImagePopup: Boolean
+        get() = state.showImagePopup
+        set(value) {
+            state.showImagePopup = value
+        }
+
+    var popupPosition: PopupPosition
+        get() = state.popupPosition
+        set(value) {
+            state.popupPosition = value
         }
 
     companion object {

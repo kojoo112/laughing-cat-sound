@@ -9,10 +9,13 @@ IntelliJ IDE에서 에러가 발생하는 순간 웃는 고양이 소리를 재�
   - 실행/디버그 프로세스가 에러로 종료될 때 (0이 아닌 종료 코드),
   - 컴파일 에러로 실행이 중단될 때,
   - 콘솔에 에러 패턴(`Exception`, `ERROR`, 스택 트레이스, `panic` 등)이 출력될 때.
+- 에러 시 웃는 고양이 이미지를 잠깐 띄웠다가 사라지게 하는 팝업(선택).
 - 새 소리가 재생되면 이전 소리를 멈춰 겹치지 않습니다.
 - **Settings/Preferences | Tools | Laughing Cat Sound** 설정 페이지 제공:
   - **볼륨** 조절 (0–100, 0이면 음소거).
-  - 선택한 볼륨으로 미리 듣는 **소리 테스트** 버튼.
+  - **이미지 팝업 표시** 토글.
+  - **팝업 위치** 선택 (우측 하단/좌측 하단/우측 상단/좌측 상단/중앙, 그리고 "모두"는 다섯 위치 동시 표시).
+  - 소리와 이미지 팝업을 함께 미리보는 **테스트** 버튼.
 - IDE 언어에 맞춰 전환되는 다국어 UI (영어 / 한국어).
 
 ## 설치
@@ -52,10 +55,13 @@ run never slips by unnoticed — with a bit of humor to soften the blow.
   - a run or debug process exits with an error (non-zero exit code),
   - a run is aborted by a compilation error, or
   - an error pattern (`Exception`, `ERROR`, stack trace, `panic`, ...) is printed to a console.
+- Optional image popup that briefly shows a laughing cat and fades out on error.
 - A newly triggered sound stops the previous one instead of overlapping.
 - Settings page at **Settings/Preferences | Tools | Laughing Cat Sound**:
   - **Volume** control (0–100, where 0 mutes the sound).
-  - **Test sound** button to preview the sound at the chosen volume.
+  - **Show image popup** toggle.
+  - **Popup position** (bottom-right/left, top-right/left, center, and "All" shows all five at once).
+  - **Test** button to preview both the sound and the image popup.
 - Localized UI (English / Korean), following the IDE language.
 
 ## Installation
