@@ -13,22 +13,6 @@
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
     <description><![CDATA[
-        방금 코드가 터졌나요? 고양이가 벌써 웃고 있습니다.<br><br>
-
-        IDE에서 에러가 발생하는 순간 웃는 고양이 소리를 재생합니다.
-        실패한 실행을 놓치지 않고, 조금은 유쾌하게 알아챌 수 있습니다.<br><br>
-
-        <b>이럴 때 반응합니다:</b>
-        <ul>
-            <li>실행/디버그 프로세스가 에러로 종료될 때 (0이 아닌 종료 코드)</li>
-            <li>컴파일 에러로 실행이 중단될 때</li>
-            <li>콘솔에 에러(Exception, ERROR, 스택 트레이스, panic 등)가 출력될 때</li>
-        </ul>
-
-        Settings/Preferences | Tools | Laughing Cat Sound 에서 볼륨을 조절하거나
-        음소거할 수 있고, 소리를 미리 들어볼 수 있습니다.<br><br>
-
-        <b>English</b><br>
         Something in your code just broke? A cat is already laughing at you.<br><br>
 
         This plugin plays a laughing cat sound the moment an error appears in your IDE,
@@ -42,7 +26,23 @@
         </ul>
 
         You can adjust the volume, mute it, or preview the sound in
-        Settings/Preferences | Tools | Laughing Cat Sound.
+        Settings/Preferences | Tools | Laughing Cat Sound.<br><br>
+
+        <b>한국어</b><br>
+        방금 코드가 터졌나요? 고양이가 벌써 웃고 있습니다.<br><br>
+
+        IDE에서 에러가 발생하는 순간 웃는 고양이 소리를 재생합니다.
+        실패한 실행을 놓치지 않고, 조금은 유쾌하게 알아챌 수 있습니다.<br><br>
+
+        <b>이럴 때 반응합니다:</b>
+        <ul>
+            <li>실행/디버그 프로세스가 에러로 종료될 때 (0이 아닌 종료 코드)</li>
+            <li>컴파일 에러로 실행이 중단될 때</li>
+            <li>콘솔에 에러(Exception, ERROR, 스택 트레이스, panic 등)가 출력될 때</li>
+        </ul>
+
+        Settings/Preferences | Tools | Laughing Cat Sound 에서 볼륨을 조절하거나
+        음소거할 수 있고, 소리를 미리 들어볼 수 있습니다.
     ]]></description>
 
     <!-- Product and plugin compatibility requirements.
