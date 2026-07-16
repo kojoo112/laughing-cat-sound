@@ -6,9 +6,10 @@ IntelliJ IDE에서 에러가 발생하는 순간 웃는 고양이 소리를 재�
 ## 기능
 
 - 다음과 같은 경우에 소리를 재생합니다:
-  - 실행/디버그 프로세스가 에러로 종료될 때 (0이 아닌 종료 코드),
-  - 컴파일 에러로 실행이 중단될 때,
-  - 콘솔에 에러 패턴(`Exception`, `ERROR`, 스택 트레이스, `panic` 등)이 출력될 때.
+  - 테스트가 실패할 때 (IDE 테스트 러너 기준),
+  - 애플리케이션이 에러로 종료될 때 (종료 코드 1 — 시작 실패, uncaught 예외 등),
+  - 컴파일 에러로 실행이 중단될 때.
+  - (정상 종료나 사용자가 직접 멈춘 경우에는 소리가 나지 않습니다.)
 - 에러 시 웃는 고양이 이미지를 잠깐 띄웠다가 사라지게 하는 팝업(선택).
 - 새 소리가 재생되면 이전 소리를 멈춰 겹치지 않습니다.
 - **Settings/Preferences | Tools | Laughing Cat Sound** 설정 페이지 제공:
@@ -52,9 +53,10 @@ run never slips by unnoticed — with a bit of humor to soften the blow.
 ## Features
 
 - Plays a sound when:
-  - a run or debug process exits with an error (non-zero exit code),
-  - a run is aborted by a compilation error, or
-  - an error pattern (`Exception`, `ERROR`, stack trace, `panic`, ...) is printed to a console.
+  - a test fails (via the IDE test runner),
+  - an application exits with an error (exit code 1 — a failed startup, an uncaught exception, ...), or
+  - a run is aborted by a compilation error.
+  - (It stays silent on a normal exit or when you stop the run yourself.)
 - Optional image popup that briefly shows a laughing cat and fades out on error.
 - A newly triggered sound stops the previous one instead of overlapping.
 - Settings page at **Settings/Preferences | Tools | Laughing Cat Sound**:

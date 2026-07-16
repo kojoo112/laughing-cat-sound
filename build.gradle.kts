@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "io.github.kojoo112"
-version = "1.2.0"
+version = "1.3.0"
 
 repositories {
     mavenCentral()
@@ -33,6 +33,18 @@ intellijPlatform {
         }
 
         changeNotes = """
+            <b>1.3.0</b>
+            <ul>
+                <li>실행 중 콘솔 텍스트로 에러를 감지하던 방식을 제거했습니다. (통과하는 테스트가 스택 트레이스를 출력하는 등 오탐이 잦았습니다)</li>
+                <li>이제 다음 세 경우에만 반응합니다: 테스트 실패(IDE 테스트 러너 이벤트로 감지), 애플리케이션이 종료 코드 1로 끝남(시작 실패·uncaught 예외 등), 컴파일 에러로 실행 중단.</li>
+                <li>정상 종료나 사용자가 직접 실행을 멈춘 경우(Stop)에는 소리가 나지 않습니다.</li>
+            </ul>
+            <b>1.3.0 (English)</b>
+            <ul>
+                <li>Remove console-text error detection. (It fired too often — e.g. when a passing test prints a stack trace.)</li>
+                <li>Now reacts only in three cases: a test fails (detected via the IDE test-runner events), an application exits with code 1 (a failed startup, an uncaught exception, ...), or a run is aborted by a compilation error.</li>
+                <li>Stays silent on a normal exit or when you stop the run yourself.</li>
+            </ul>
             <b>1.2.0</b>
             <ul>
                 <li>에러 발생 시 웃는 고양이 이미지를 잠깐 띄웠다가 사라지게 하는 팝업 추가</li>

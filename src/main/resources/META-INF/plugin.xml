@@ -20,10 +20,12 @@
 
         <b>It reacts when:</b>
         <ul>
-            <li>a run or debug process exits with an error (non-zero exit code),</li>
-            <li>a run is aborted by a compilation error, or</li>
-            <li>an error (Exception, ERROR, stack trace, panic, ...) is printed to a console.</li>
+            <li>a test fails,</li>
+            <li>an application exits with an error (exit code 1 — e.g. a failed startup or an uncaught exception), or</li>
+            <li>a run is aborted by a compilation error.</li>
         </ul>
+
+        It stays silent when a process ends normally or when you stop the run yourself.<br><br>
 
         You can adjust the volume, mute it, or preview the sound in
         Settings/Preferences | Tools | Laughing Cat Sound.<br><br>
@@ -36,10 +38,12 @@
 
         <b>이럴 때 반응합니다:</b>
         <ul>
-            <li>실행/디버그 프로세스가 에러로 종료될 때 (0이 아닌 종료 코드)</li>
+            <li>테스트가 실패할 때</li>
+            <li>애플리케이션이 에러로 종료될 때 (종료 코드 1 — 시작 실패, uncaught 예외 등)</li>
             <li>컴파일 에러로 실행이 중단될 때</li>
-            <li>콘솔에 에러(Exception, ERROR, 스택 트레이스, panic 등)가 출력될 때</li>
         </ul>
+
+        프로세스가 정상 종료하거나, 사용자가 직접 실행을 멈춘 경우에는 소리가 나지 않습니다.<br><br>
 
         Settings/Preferences | Tools | Laughing Cat Sound 에서 볼륨을 조절하거나
         음소거할 수 있고, 소리를 미리 들어볼 수 있습니다.
@@ -52,10 +56,6 @@
     <!-- Extensions defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <!-- 모든 Run/Debug/테스트 콘솔에 에러 감지 필터를 붙인다. -->
-        <consoleFilterProvider
-            implementation="io.github.kojoo112.laughingcatsound.ErrorConsoleFilterProvider"/>
-
         <!-- Settings → Tools → Laughing Cat Sound 설정 페이지 (표시명은 번들에서 로케일별로 로드) -->
         <applicationConfigurable
             parentId="tools"
@@ -65,11 +65,15 @@
             key="settings.displayName"/>
     </extensions>
 
-    <!-- Run/Debug 프로세스가 0이 아닌 종료 코드로 끝나면 소리를 재생한다.
-         EXECUTION_TOPIC 은 프로젝트 메시지 버스에 발행되므로 projectListeners 로 등록해야 한다. -->
+    <!-- 두 신호로 실패를 감지한다(둘 다 프로젝트 메시지 버스 토픽이라 projectListeners 로 등록).
+         - ErrorExecutionListener: 프로세스가 종료 코드 1 로 끝나거나 실행 전 컴파일 실패 시
+         - ErrorTestListener: IDE 테스트 러너에서 테스트가 실패할 때(종료 코드와 무관) -->
     <projectListeners>
         <listener
             class="io.github.kojoo112.laughingcatsound.ErrorExecutionListener"
             topic="com.intellij.execution.ExecutionListener"/>
+        <listener
+            class="io.github.kojoo112.laughingcatsound.ErrorTestListener"
+            topic="com.intellij.execution.testframework.sm.runner.SMTRunnerEventsListener"/>
     </projectListeners>
 </idea-plugin>
